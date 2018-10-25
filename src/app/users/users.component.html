@@ -1,0 +1,7 @@
+<h1>Users</h1>
+
+<ul>
+  <li *ngFor="let user of users | async">
+    <a routerLink="/users/">{{ user.username }}</a>
+  </li>
+</ul>

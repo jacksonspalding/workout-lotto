@@ -1,0 +1,21 @@
+<div *ngIf="deleted.length" class="message">
+  Activity deleted. <span (click)="undoDelete()" class="msg-action">Undo</span>
+  <span class="msg-close" (click)="closeUndo()"><i class="material-icons">close</i></span>
+</div>
+
+<div class="clearfix">
+  <h1 class="left">Activity</h1>
+  <a routerLink="/activities/create" class="btn right">Add New</a>
+</div>
+
+<ul>
+  <li *ngFor="let activity of activities | async" class="clearfix">
+    <span class="label">
+      {{ activity.date.seconds * 1000 | date:'MM/dd/y'}} | {{ activity.duration }} minutes | {{ activity.description }}
+    </span>
+    <span class="right">
+      <button routerLink="/activities/update/{{ activity.id }}">Update</button>
+      <button (click)="deleteActivity(activity)">Delete</button>
+    </span>
+  </li>
+</ul>

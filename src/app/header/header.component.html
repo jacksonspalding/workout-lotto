@@ -1,0 +1,6 @@
+<header *ngIf="authService.user | async as user">
+  <div (click)="openMenu()" id="nav-trigger">
+    <i class="material-icons">menu</i>
+  </div>
+  <div class="account-welcome">Hello, {{ user.username }}</div>
+</header>

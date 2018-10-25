@@ -1,0 +1,25 @@
+<nav *ngIf="authService.user | async as user">
+  <div (click)="closeMenu()" id="nav-close">
+    <i class="material-icons">close</i>
+  </div>
+  <div id="logo">
+    <img src="../../assets/logo.png" alt="Workout Lotto">
+  </div>
+  <ul>
+    <li>
+      <a routerLink="users" routerLinkActive="activated" [routerLinkActiveOptions]="{exact: true}">
+        <i class="material-icons">supervised_user_circle</i> Users
+      </a>
+    </li>
+    <li>
+      <a routerLink="activities" routerLinkActive="activated">
+        <i class="material-icons">directions_run</i> Activity
+      </a>
+    </li>
+    <li>
+      <a (click)="logout()" href="">
+        <i class="material-icons">exit_to_app</i> Logout
+      </a>
+    </li>
+  </ul>
+</nav>
